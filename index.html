@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculo do churrasco</title>
+    <style src="./style/style.css"></style>
+    <script defer src="./scripts/main.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Calculadora de custos</h1>
+      <div class="container" id="Cima">
+        <div>
+          <label for="Nome">Nome</label>
+          <input type="text" id="Nome" />
+          <input type="button" value="Adiciona" />
+        </div>
+        <div>
+          <label for="produto">Produto</label>
+          <input type="text" id="produto" />
+          <label for="valorUn"> valor Un.</label>
+          <input type="number" id="valorUn" />
+          <input type="button" value="CustoF" />
+          <input type="button" value="PerCap" />
+        </div>
+      </div>
+      <div class="container" id="Baixo">
+        <div class="ul">
+          <h2>Pessoas</h2>
+          <ul id="listP">
+          </ul>
+        </div>
+        <div id="cf">
+          <h2>Custo Fixo</h2>
+          <table id="table1">
+            <tbody>
+              <tr>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="cpc">
+          <h2>Custo per capita</h2>
+          <table id="table2">
+            <tbody>
+              <tr>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
