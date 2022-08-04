@@ -34,39 +34,26 @@ function addPessoas() {
     window.alert("Digite um nome valido");
   }
   nome.value = "";
-
 }
 
 function addCustos() {
   const custo = document.createElement("tr");
   const Produto = document.createElement("td");
   const val = document.createElement("td");
-  if (produto.value != "") {
+  if (produto.value != "" && valor.value != "" && valor.value > 0) {
     Produto.textContent = `${produto.value}`;
-    custo.appendChild(Produto);
-  } else {
-    window.alert("Digite um produto valido");
-  }
-  if (valor.value != "" && valor.value > 0) {
     val.textContent = `${valor.value}`;
+    custo.appendChild(Produto);
     custo.appendChild(val);
-  } else {
-    window.alert("Digite um valor valido");
-  }
+  } else window.alert("Produto Invalido!!");
 
-
-  if (this.id == "CustoF"){
-    const Vdiv = val/pessoas;
-
+  if (this.id == "CustoF") {
     table1.appendChild(custo);
-  }else{
-    const Vmult = val*pessoas;
-
+    calculaFixo(valor.value);
+  } else {
     table2.appendChild(custo);
+    calculaPerCap(valor.value);
   }
-  
-  vtp = Vdiv + Vmult;
-  vTotal = val + Vmult;
 
   produto.value = "";
   valor.value = "";
@@ -75,11 +62,11 @@ function addCustos() {
 function calculaFixo(val) {
   SomaCf += val;
 }
-function calculaPerCap(Val) {
+function calculaPerCap(val) {
   SomaPc += val;
 }
 
-function calculaTotal(val) {
+function calculaTotal() {
   if (pessoas > 0) {
     total = SomaPc * pessoas;
     total += SomaCf;
@@ -89,4 +76,4 @@ function calculaTotal(val) {
   }
 }
 
-function remove() {}
+function remove() { }
