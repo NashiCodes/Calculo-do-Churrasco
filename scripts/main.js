@@ -41,7 +41,8 @@ function Custos() {
     table2.appendChild(custo);
   }
   
-  vTotal = Vdiv + Vmult;
+  vtp = Vdiv + Vmult;
+  vTotal = val + Vmult;
 
   prod.value = "";
   valor.value = "";
