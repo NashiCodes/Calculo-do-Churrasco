@@ -17,19 +17,34 @@ perCap.addEventListener("click", Custos);
 function adiciona() {
   const p = document.createElement("li");
   p.textContent = `${nome.value}`;
-  listP.appendChild(p);
-  pessoas++;
-  nome.value = "";
+    if(nome.value != ""){
+        listP.appendChild(p);
+        pessoas++;
+        nome.value = "";
+    }else{
+        window.alert("Adicione um nome valido.");
+    }
+    
 }
 
 function Custos() {
   const custo = document.createElement("tr");
   const Produto = document.createElement("td");
   const val = document.createElement("td");
-  Produto.textContent = `${prod.value}`;
-  val.textContent = `${valor.value}`;
-  custo.appendChild(Produto);
-  custo.appendChild(val);
+  
+    if(prod.value != ""){
+        Produto.textContent = `${prod.value}`;
+        custo.appendChild(Produto);
+    }else{
+        window.alert("Adicione um produto valido.");
+    }
+    if(valor.value != ""){
+        val.textContent = `${valor.value}`;
+        custo.appendChild(val);
+    }else{
+        window.alert("Adicione um valor valido.")
+    }
+  
 
   if (this.id == "CustoF"){
     const Vdiv = val/pessoas;
