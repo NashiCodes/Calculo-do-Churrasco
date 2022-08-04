@@ -31,8 +31,17 @@ function Custos() {
   custo.appendChild(Produto);
   custo.appendChild(val);
 
-  if (this.id == "CustoF") table1.appendChild(custo);
-  else table2.appendChild(custo);
+  if (this.id == "CustoF"){
+    const Vdiv = val/pessoas;
+
+    table1.appendChild(custo);
+  }else{
+    const Vmult = val*pessoas;
+
+    table2.appendChild(custo);
+  }
+  
+  vTotal = Vdiv + Vmult;
 
   prod.value = "";
   valor.value = "";
