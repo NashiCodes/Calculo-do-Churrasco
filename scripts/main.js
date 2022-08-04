@@ -34,6 +34,7 @@ function addPessoas() {
     window.alert("Digite um nome valido");
   }
   nome.value = "";
+
 }
 
 function addCustos() {
@@ -53,8 +54,19 @@ function addCustos() {
     window.alert("Digite um valor valido");
   }
 
-  if (this.id == "CustoF") table1.appendChild(custo);
-  else table2.appendChild(custo);
+
+  if (this.id == "CustoF"){
+    const Vdiv = val/pessoas;
+
+    table1.appendChild(custo);
+  }else{
+    const Vmult = val*pessoas;
+
+    table2.appendChild(custo);
+  }
+  
+  vtp = Vdiv + Vmult;
+  vTotal = val + Vmult;
 
   produto.value = "";
   valor.value = "";
