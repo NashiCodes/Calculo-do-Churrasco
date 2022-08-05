@@ -76,4 +76,8 @@ function calculaTotal() {
   }
 }
 
-function remove() { }
+function remove() { 
+  const pai = parentNode(this);
+  const avo = parentNode(pai);
+  avo.removeChild(pai);
+}
