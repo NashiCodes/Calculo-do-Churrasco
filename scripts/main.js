@@ -11,6 +11,7 @@ let table2 = document.querySelector("#table2");
 var SomaCf = 0;
 var SomaPc = 0;
 var total = 0;
+var xId = 0;
 let pessoas = 0;
 
 let removebtn = document.createElement("img");
@@ -29,7 +30,9 @@ function addPessoas() {
   if (nome.value != "") {
     li.textContent = `${nome.value}`;
     listP.appendChild(li);
+    listP.appendChild(removebtn);
     pessoas++;
+    xId++;
   } else {
     window.alert("Digite um nome valido");
   }
@@ -44,12 +47,16 @@ function addCustos() {
   if (produto.value != "") {
     Produto.textContent = `${produto.value}`;
     custo.appendChild(Produto);
+    custo.appendChild(removebtn);
+    xId++;
   } else {
     window.alert("Digite um produto valido");
   }
   if (valor.value != "" && valor.value > 0) {
     val.textContent = `${valor.value}`;
     custo.appendChild(val);
+    custo.appendChild(removebtn);
+    xId++;
   } else {
     window.alert("Digite um valor valido");
   }
@@ -59,10 +66,14 @@ function addCustos() {
     const Vdiv = val/pessoas;
 
     table1.appendChild(custo);
+    table1.appendChild(removebtn);
+    xId++;
   }else{
     const Vmult = val*pessoas;
 
     table2.appendChild(custo);
+    table2.appendChild(removebtn);
+    xId++;
   }
   
   vtp = Vdiv + Vmult;
@@ -89,4 +100,6 @@ function calculaTotal(val) {
   }
 }
 
-function remove() {}
+function remove() {
+
+}
