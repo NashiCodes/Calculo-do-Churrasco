@@ -7,10 +7,11 @@ let perCap = document.querySelector("#PerCap");
 let listP = document.querySelector("#listP");
 let table1 = document.querySelector("#table1");
 let table2 = document.querySelector("#table2");
+let divisao = document.querySelector("#divisao");
 
-var SomaCf = 0;
-var SomaPc = 0;
-var total = 0;
+let SomaCf = 0;
+let SomaPc = 0;
+let total = 0;
 let pessoas = 0;
 
 let removebtn = document.createElement("img");
@@ -34,6 +35,7 @@ function addPessoas() {
     window.alert("Digite um nome valido");
   }
   nome.value = "";
+  calculaTotal();
 }
 
 function addCustos() {
@@ -49,12 +51,13 @@ function addCustos() {
 
   if (this.id == "CustoF") {
     table1.appendChild(custo);
-    calculaFixo(valor.value);
+    calculaFixo(Number(valor.value));
   } else {
     table2.appendChild(custo);
-    calculaPerCap(valor.value);
+    calculaPerCap(Number(valor.value));
   }
 
+  calculaTotal();
   produto.value = "";
   valor.value = "";
 }
@@ -70,13 +73,15 @@ function calculaTotal() {
   if (pessoas > 0) {
     total = SomaPc * pessoas;
     total += SomaCf;
-    total = total / pessoas;
+    total /= pessoas;
+    total = total.toFixed(2);
+    divisao.textContent = `R$:${total}`;
   } else {
     window.alert("Pessoas insuficientes para Calcular o total");
   }
 }
 
-function remove() { 
+function remove() {
   const pai = parentNode(this);
   const avo = parentNode(pai);
   avo.removeChild(pai);
