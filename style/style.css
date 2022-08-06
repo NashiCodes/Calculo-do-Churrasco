@@ -1,8 +1,5 @@
-.container{
+.remove-button{
     display: flex;
-    justify-content: center;
-    height: fit-content;
-    width: fit-content;
-    border-radius: 15px;
-    padding: 2%;
+    width: 30px;
+    height: 30px;
 }
