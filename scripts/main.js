@@ -102,5 +102,23 @@ function remove(id) {
   let pai = elemento.parentNode;
   console.log(pai);
   let avo = pai.parentNode;
+  recalcula(pai);
   avo.removeChild(pai);
+}
+
+function recalcula(e) {
+  let i = e.parentNode
+  if (e.localName == "li") {
+    pessoas--;
+  }
+  if (i.getAttribute("id") == "table1") {
+    let aux = e.children[1];
+    calculaFixo(-Number(aux.textContent));
+  }
+  if (i.getAttribute("id") == "table2") {
+    let aux = e.children[1];
+    calculaPerCap(-Number(aux.textContent));
+  }
+
+  calculaTotal();
 }
