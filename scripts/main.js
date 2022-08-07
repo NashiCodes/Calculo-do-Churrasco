@@ -19,13 +19,14 @@ var pessoas = 0;
 add.addEventListener("click", addPessoas);
 custoF.addEventListener("click", addCustos);
 perCap.addEventListener("click", addCustos);
-for (let i = 0; i < botao.length; i++) {
-  botao.addEventListener("click", () => {
-    const pai = parentNode(this);
-    const avo = parentNode(pai);
-    avo.removeChild(pai);
-  });
-}
+
+document.body.addEventListener("click", function (e) {
+  if (e.target.classList.contains("remove-button")) {
+    for (let i = 0; i <= xId; i++) {
+      if (e.target.getAttribute("id") == i) remove(i);
+    }
+  }
+});
 
 function addPessoas() {
   const li = document.createElement("li");
@@ -94,4 +95,12 @@ function criaBotao() {
 
   xId++;
   return removebtn;
+}
+
+function remove(id) {
+  let elemento = document.getElementById(id);
+  let pai = elemento.parentNode;
+  console.log(pai);
+  let avo = pai.parentNode;
+  avo.removeChild(pai);
 }
