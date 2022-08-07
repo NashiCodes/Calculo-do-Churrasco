@@ -8,6 +8,7 @@ let listP = document.querySelector("#listP");
 let table1 = document.querySelector("#table1");
 let table2 = document.querySelector("#table2");
 let divisao = document.querySelector("#divisao");
+let botao = document.querySelectorAll(".remove-button");
 
 var SomaCf = 0;
 var SomaPc = 0;
@@ -18,14 +19,20 @@ var pessoas = 0;
 add.addEventListener("click", addPessoas);
 custoF.addEventListener("click", addCustos);
 perCap.addEventListener("click", addCustos);
-removebtn.addEventListener("click", remove);
+for (let i = 0; i < botao.length; i++) {
+  botao.addEventListener("click", () => {
+    const pai = parentNode(this);
+    const avo = parentNode(pai);
+    avo.removeChild(pai);
+  });
+}
 
 function addPessoas() {
   const li = document.createElement("li");
   if (nome.value != "") {
     li.textContent = `${nome.value}`;
+    li.appendChild(criaBotao());
     listP.appendChild(li);
-    listP.appendChild(criaBotao());
     pessoas++;
   } else {
     window.alert("Digite um nome valido");
@@ -80,17 +87,10 @@ function calculaTotal() {
   }
 }
 
-function remove() {
-  const pai = parentNode(this);
-  const avo = parentNode(pai);
-  avo.removeChild(pai);
-}
-
 function criaBotao() {
-  let removebtn = document.createElement("img");
+  let removebtn = document.createElement("button");
   removebtn.id = xId;
   removebtn.className = "remove-button";
-  removebtn.src = "../images/x.png";
 
   xId++;
   return removebtn;
