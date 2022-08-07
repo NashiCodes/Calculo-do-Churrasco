@@ -15,11 +15,10 @@ body{
     flex-direction: column;
     background-color: white;
     justify-content: center;
-    margin-top: 10%;
     width: fit-content;
     height: fit-content;
     border-radius: 15px;
-    padding: 2%;
+    padding: 5%;
     margin: 15%;
 }
 
@@ -27,6 +26,7 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    padding: 10px;
 }
 
 .ptb{
@@ -38,6 +38,7 @@ body{
 
 .remove-button{
     display: flex;
-    width: 30px;
-    height: 30px;
+    position: absolute;
+    width: 10px;
+    height: 10px;
 }

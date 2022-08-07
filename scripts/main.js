@@ -17,7 +17,7 @@ let pessoas = 0;
 let removebtn = document.createElement("img");
 
 removebtn.id = "rBtn";
-removebtn.class = "remove-button";
+removebtn.className = "remove-button";
 removebtn.src = "../images/x.png";
 
 add.addEventListener("click", addPessoas);
