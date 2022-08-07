@@ -5,28 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculo do churrasco</title>
-    <style src="style\style.css"></style>
-    <script defer src="scripts\main.js"></script>
+    <link href="./style/style.css" rel="stylesheet">
+    <script defer src="./scripts/main.js"></script>
   </head>
   <body>
     <div class="container">
       <h1>Calculadora de custos</h1>
-      <div class="container" id="Cima">
+      <div class="ptc" id="Cima">
         <div>
           <label for="Nome">Nome</label>
-          <input type="text" id="Nome" />
-          <input type="button" value="Adiciona" id="Add" />
+          <input type="text" class="inputlabel" id="Nome" />
+          <input type="button"  class="btn" value="Adiciona" id="Add" />
         </div>
         <div>
           <label for="produto">Produto</label>
-          <input type="text" id="Produto" />
+          <input type="text" class="inputlabel" id="Produto" />
           <label for="valorUn"> valor Un.</label>
-          <input type="number" id="ValorUn" />
-          <input type="button" value="Custo Fixo" id="CustoF" />
-          <input type="button" value="Per Capita" id="PerCap" />
+          <input type="text" class="inputlabel" id="ValorUn" />
+          <input type="button" class="btn" value="Custo Fixo" id="CustoF" />
+          <input type="button" class="btn" value="Per Capita" id="PerCap" />
         </div>
       </div>
-      <div class="container" id="Baixo">
+      <div class="ptb" id="Baixo">
         <div class="ul">
           <h2>Pessoas</h2>
           <ul id="listP"></ul>

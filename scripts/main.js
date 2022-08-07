@@ -9,15 +9,17 @@ let table1 = document.querySelector("#table1");
 let table2 = document.querySelector("#table2");
 let divisao = document.querySelector("#divisao");
 
-let SomaCf = 0;
-let SomaPc = 0;
-let total = 0;
+
+var SomaCf = 0;
+var SomaPc = 0;
+var total = 0;
+var xId = 0;
 let pessoas = 0;
 
 let removebtn = document.createElement("img");
 
 removebtn.id = "rBtn";
-removebtn.class = "remove-button";
+removebtn.className = "remove-button";
 removebtn.src = "../images/x.png";
 
 add.addEventListener("click", addPessoas);
@@ -30,7 +32,9 @@ function addPessoas() {
   if (nome.value != "") {
     li.textContent = `${nome.value}`;
     listP.appendChild(li);
+    listP.appendChild(removebtn);
     pessoas++;
+    xId++;
   } else {
     window.alert("Digite um nome valido");
   }
@@ -44,10 +48,14 @@ function addCustos() {
   const val = document.createElement("td");
   if (produto.value != "" && valor.value != "" && valor.value > 0) {
     Produto.textContent = `${produto.value}`;
-    val.textContent = `${valor.value}`;
+     val.textContent = `${valor.value}`;
     custo.appendChild(Produto);
     custo.appendChild(val);
-  } else window.alert("Produto Invalido!!");
+    custo.appendChild(removebtn);
+    xId++;
+  } else {
+    window.alert("Digite um produto valido");
+  }
 
   if (this.id == "CustoF") {
     table1.appendChild(custo);
@@ -55,7 +63,7 @@ function addCustos() {
   } else {
     table2.appendChild(custo);
     calculaPerCap(Number(valor.value));
-  }
+   }
 
   calculaTotal();
   produto.value = "";
