@@ -7,16 +7,19 @@ let perCap = document.querySelector("#PerCap");
 let listP = document.querySelector("#listP");
 let table1 = document.querySelector("#table1");
 let table2 = document.querySelector("#table2");
+let divisao = document.querySelector("#divisao");
+
 
 var SomaCf = 0;
 var SomaPc = 0;
 var total = 0;
+var xId = 0;
 let pessoas = 0;
 
 let removebtn = document.createElement("img");
 
 removebtn.id = "rBtn";
-removebtn.class = "remove-button";
+removebtn.className = "remove-button";
 removebtn.src = "../images/x.png";
 
 add.addEventListener("click", addPessoas);
@@ -29,11 +32,14 @@ function addPessoas() {
   if (nome.value != "") {
     li.textContent = `${nome.value}`;
     listP.appendChild(li);
+    listP.appendChild(removebtn);
     pessoas++;
+    xId++;
   } else {
     window.alert("Digite um nome valido");
   }
   nome.value = "";
+  calculaTotal();
 }
 
 function addCustos() {
@@ -42,19 +48,24 @@ function addCustos() {
   const val = document.createElement("td");
   if (produto.value != "" && valor.value != "" && valor.value > 0) {
     Produto.textContent = `${produto.value}`;
-    val.textContent = `${valor.value}`;
+     val.textContent = `${valor.value}`;
     custo.appendChild(Produto);
     custo.appendChild(val);
-  } else window.alert("Produto Invalido!!");
+    custo.appendChild(removebtn);
+    xId++;
+  } else {
+    window.alert("Digite um produto valido");
+  }
 
   if (this.id == "CustoF") {
     table1.appendChild(custo);
-    calculaFixo(valor.value);
+    calculaFixo(Number(valor.value));
   } else {
     table2.appendChild(custo);
-    calculaPerCap(valor.value);
-  }
+    calculaPerCap(Number(valor.value));
+   }
 
+  calculaTotal();
   produto.value = "";
   valor.value = "";
 }
@@ -70,10 +81,16 @@ function calculaTotal() {
   if (pessoas > 0) {
     total = SomaPc * pessoas;
     total += SomaCf;
-    total = total / pessoas;
+    total /= pessoas;
+    total = total.toFixed(2);
+    divisao.textContent = `R$:${total}`;
   } else {
     window.alert("Pessoas insuficientes para Calcular o total");
   }
 }
 
-function remove() { }
+function remove() {
+  const pai = parentNode(this);
+  const avo = parentNode(pai);
+  avo.removeChild(pai);
+}
