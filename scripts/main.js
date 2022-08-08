@@ -89,9 +89,10 @@ function calculaTotal() {
 }
 
 function criaBotao() {
-  let removebtn = document.createElement("button");
+  let removebtn = document.createElement("img");
   removebtn.id = xId;
   removebtn.className = "remove-button";
+  removebtn.src = "../images/x.png";
 
   xId++;
   return removebtn;
