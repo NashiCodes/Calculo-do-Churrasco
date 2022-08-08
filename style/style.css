@@ -112,4 +112,13 @@ input[type="text"] {
     flex-direction: row;
     padding: 2%;
   }
+
+  table, tbody, th, tr, td{
+    border: 1px solid #fff;
+    border-collapse: collapse;
+    backdrop-filter: blur(3px);
+    box-shadow: 0 0 6px 0 rgba(29, 29, 29, 0.203);
+    width: fit-content;
+    height: fit-content;
+  }
   
